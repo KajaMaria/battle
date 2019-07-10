@@ -6,7 +6,7 @@ describe Player do
     expect(kaja.name).to eq "kaja"
   end
   it "has an is_attacked method" do
-    james.is_attacked(10)
+    james.receive_damage
     expect(james.hp).to eq 50
   end
 end
