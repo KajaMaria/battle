@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'shotgun'
 require './lib/player'
+require './lib/game'
 
 
 
@@ -24,6 +25,7 @@ class Battle < Sinatra::Base
   get '/play' do
     @name1 = $game.player1.name
     @name2 = $game.player2.name
+    @current_player = $game.current_player.name
     erb(:play)
   end
 get '/attack' do
@@ -32,6 +34,11 @@ get '/attack' do
   $game.player2.receive_damage
   @hp2 = $game.player2.hp
   erb(:attack)
+end
+
+post '/switch' do
+  $game.switch_turns
+  redirect '/play'
 end
 
   run if app_file == $0

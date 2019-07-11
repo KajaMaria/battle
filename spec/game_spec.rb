@@ -12,4 +12,12 @@ describe Game do
       expect(game.attack(player2)).to eq(50)
     end
   end
+
+  describe "#switch_turns" do
+    it "switches who the current and opponent player is" do
+      game.switch_turns
+      expect(game.current_player).to eq player2
+      expect(game.opponent_player).to eq player1
+    end
+  end
 end
