@@ -22,12 +22,17 @@ class Battle < Sinatra::Base
     $game = Game.new(player1, player2)
     redirect '/play'
   end
+
   get '/play' do
+    if $game.lost?
+      redirect '/results'
+    end
     @name1 = $game.player1.name
     @name2 = $game.player2.name
     @current_player = $game.current_player.name
     erb(:play)
   end
+
 get '/attack' do
   @name1 = $game.player1.name
   @name2 = $game.player2.name
@@ -42,6 +47,12 @@ end
 post '/switch' do
   $game.switch_turns
   redirect '/play'
+end
+
+get '/results' do
+  @name1 = $game.player1.name
+  @name2 = $game.player2.name
+  erb(:results)
 end
 
   run if app_file == $0

@@ -18,6 +18,10 @@ class Game
     @current_player, @opponent_player = @opponent_player, @current_player
   end
 
+  def lost?
+    @player2.hp == 0
+  end
+
   # alternatively you can reassign using holding value
   # def switch_turns
   #   holding = @current_player

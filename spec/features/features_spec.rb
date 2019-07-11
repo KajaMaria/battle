@@ -9,7 +9,8 @@ feature 'features tests' do
   end
   scenario "Player 1 can see player two's hit points" do
     sign_in_and_play
-    expect(page).to have_content 'James :60hp'
+    click_button 'Attack'
+    expect(page).to have_content 'James your hp is 50'
   end
 
 end
