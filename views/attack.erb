@@ -1,7 +1,10 @@
 
-<%= @name1 %> attacked <%= @name2 %>
-
+<%= @current_player %> attacked <%= @opponent_player %>
+<br/>
 <%= @name2 %> your hp is <%= @hp2 %>
+<br/>
+<%= @name1 %> your hp is <%= @hp1 %>
+
 
 <form action="/switch" method="post">
   <input type="submit" value = "OK"/>
