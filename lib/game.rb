@@ -22,6 +22,13 @@ class Game
     @player2.hp == 0
   end
 
+  def self.create(player_1, player_2)
+    @game = Game.new(player_1, player_2)
+  end
+
+  def self.instance
+    @game
+  end
   # alternatively you can reassign using holding value
   # def switch_turns
   #   holding = @current_player
